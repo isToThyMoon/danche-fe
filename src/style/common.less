@@ -1,0 +1,78 @@
+@import './default.less';
+@import './loading.less';
+
+//清除li标签开头的点
+ul,li{
+	list-style: none;
+}
+
+//清除浮动（订单详情里的li）
+.clearfix{
+	&::after{
+		content:'';
+		clear:both;
+		display:block;
+		visibility:hidden;
+	}
+}
+
+
+//admin组件下 components的样式
+.container{
+	background-color: @colorL;
+	.nav-left{
+		background-color: #ffffff;
+		color: #ffffff;
+		height: calc(100vh);
+		min-height: 635px;
+		border-right: 1px solid #e8e8e8;
+
+		//去除memu的右侧border线
+		.ant-menu-vertical{
+			border-right: 0px;
+		}
+	}
+
+	.main{
+		height: calc(100vh);
+		min-height: 635px;
+		overflow:auto;			
+	}
+	
+	.content{
+		position: relative;
+		padding: 20px;
+	}
+}
+
+
+
+//城市管理中 Table外包裹的css
+.table-content-wrap {
+	background: #ffffff;
+	border: 1px solid #e8e8e8;
+	margin-top: -1px;
+	.ant-table-wrapper{
+        margin-left: -1px;
+        margin-right: -2px;
+    }
+}
+
+
+
+
+// Common组件头部外包裹的css
+.simple-page{
+	.header-top{
+		background: #1890ff;
+		color:@colorM;
+
+	}
+}
+
+
+.operate-wrap{
+    button{
+        margin-right: 10px;
+    }
+}
