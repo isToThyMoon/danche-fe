@@ -1,5 +1,5 @@
 import JsonP from 'jsonp';
-import axios from 'axios';
+import axios from './interceptor.js';
 import { Modal } from 'antd';
 
 class Axios {
@@ -63,7 +63,8 @@ class Axios {
 			loading.style.display ='block';
 		}
 
-		let baseApi ='https://www.easy-mock.com/mock/5c9e1f2d51af0e3f5b728cf8/dancheapi';
+        // let baseApi ='https://www.easy-mock.com/mock/5c9e1f2d51af0e3f5b728cf8/dancheapi';
+        let baseApi ='http://api.summeres.top';
 		return new Promise((resolve, reject)=>{
 			axios({
 				url: options.url,
@@ -75,18 +76,19 @@ class Axios {
 				data: options.data || ''
 			})
 			.then((response)=>{
-				// console.log(response)
+				console.log('axios',response)
 				if (options.data && options.data.isShowLoading !== false){
 					loading =document.querySelector('#ajaxLoading');
 					loading.style.display ='none';
-				}
-				if (response.status === 200){
+                }
+                //response.status === 200
+                if (response.data.code === 0 ){
 					let res = response.data;
 					if (res.code === 0){
 						resolve(res);
 					}else{
 						Modal.info({
-							title: '提示',
+							title: '暂无数据',
 							content: res.msg
 						})
 					}

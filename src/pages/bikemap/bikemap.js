@@ -10,6 +10,8 @@ import FilterForm from './filterform.js';
 
 class BikeMap extends PureComponent {
 
+    map = '';
+
     render(){
         const { total_bike, requestBikeList } = this.props;
         return (
@@ -19,14 +21,11 @@ class BikeMap extends PureComponent {
                 </Card>
                 <Card style={{marginTop:10}}>
                     <div>共{total_bike}辆车</div>
-                    <div id="bikeMapContainer" style={{height:500}}></div>
+                    <div id="bikeMapContainer" style={{height:800}}></div>
                 </Card>
             </Fragment>
         );
     };
-
-
-    map = '';
 
     componentWillMount(){
         const submitInfo = {
